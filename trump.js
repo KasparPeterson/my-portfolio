@@ -4,7 +4,7 @@ function chat_with_trump() {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://35.190.40.9:8080/chat",
+      "url": "http://kasparpeterson.com:8080/chat",
       "method": "POST",
       "headers": {
         "Content-Type": "application/json",
@@ -16,7 +16,7 @@ function chat_with_trump() {
     $.ajax(settings).done(function (response) {
       console.log(response);
 
-      answer = response.responses[0];
+      answer = response.reply;
       console.log("Answer: " + answer);
       document.getElementById("answer").innerHTML = answer
     });
