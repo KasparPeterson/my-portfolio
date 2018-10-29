@@ -1,6 +1,9 @@
 function chat_with_trump() {
+    document.getElementById("answer").innerHTML = ""
+    context = document.getElementById("context").value
     question = document.getElementById("question").value
-    console.log("Chat with trump, question: " + question);
+    payload = question + " " + context
+    console.log("Chat with trump, payload: " + payload);
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -10,12 +13,11 @@ function chat_with_trump() {
         "Content-Type": "application/json",
       },
       "processData": false,
-      "data": "{\"message\": \"" + question + "\"}"
+      "data": "{\"message\": \"" + payload + "\"}"
     }
 
     $.ajax(settings).done(function (response) {
       console.log(response);
-
       answer = response.reply;
       console.log("Answer: " + answer);
       document.getElementById("answer").innerHTML = answer
