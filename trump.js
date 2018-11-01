@@ -3,6 +3,7 @@ function chat_with_trump() {
     context = document.getElementById("context").value
     question = document.getElementById("question").value
     payload = question + " " + context
+    data = {"message": payload}
     console.log("Chat with trump, payload: " + payload);
     var settings = {
       "async": true,
@@ -13,7 +14,7 @@ function chat_with_trump() {
         "Content-Type": "application/json",
       },
       "processData": false,
-      "data": "{\"message\": \"" + payload + "\"}"
+      "data": JSON.stringify(data)
     }
 
     $.ajax(settings).done(function (response) {
