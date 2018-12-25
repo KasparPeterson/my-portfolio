@@ -43,8 +43,8 @@ services:
     build: ./webpage
     container_name: webpage
     volumes:
-      - "./volumes/nginx-sample-website/conf.d/:/etc/nginx/conf.d"
-      - "./volumes/config/sample-website/config.js:/usr/share/nginx/html/config.js"
+      - "./volumes/nginx-webpage/conf.d/:/etc/nginx/conf.d"
+      - "./volumes/config/webpage/config.js:/usr/share/nginx/html/config.js"
     environment:
       - VIRTUAL_HOST=kasparpeterson.com
       - VIRTUAL_NETWORK=nginx-proxy
